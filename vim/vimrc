@@ -41,14 +41,13 @@ Plugin 'VundleVim/Vundle.vim'
 " here will be list of plugins
 
 Plugin 'scrooloose/nerdtree'        " filetree
+Plugin 'grep.vim'
 call vundle#end()
 
 " set cursorcolumn
 " set cursorline
 " highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 " highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
-
-
 filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
@@ -56,3 +55,6 @@ set tabstop=4
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
+
+" NERDTree settings
+map <silent> <F2> :NERDTreeToggle<CR>
