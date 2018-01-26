@@ -56,5 +56,6 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
+map <silent> <C-N> :set invnumber<CR>
 " NERDTree settings
 map <silent> <F2> :NERDTreeToggle<CR>
