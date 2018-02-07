@@ -1,3 +1,4 @@
+set nocompatible
 " for me just to get used to normal keys,
 " disable arrow keys in both mods
 " Disable Arrow keys in Escape mode
