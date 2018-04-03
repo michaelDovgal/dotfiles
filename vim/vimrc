@@ -27,7 +27,7 @@ if(has("win32") || has("win64") || has("win95") || has("win16"))
 else
     let g:islinux = 1
 endif
-" 
+"
 
 "Vundle "
 " before using, vunlde need to be installed
@@ -51,6 +51,8 @@ Plugin 'scrooloose/nerdtree'        " filetree
 Plugin 'grep.vim'
 Plugin 'https://github.com/vim-scripts/restore_view.vim'
 Plugin 'wombat256.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 
 set cursorcolumn
@@ -68,10 +70,16 @@ set expandtab
 " binding section
 " show/hide row number in file
 map <silent> <C-N> :set invnumber<CR>
-" NERDTree settings
-map <silent> <F2> :NERDTreeToggle<CR>
+
 " set hotkey for toogle cursor highlight mode
-nnoremap <silent> <F3> :set cursorline! cursorcolumn!<CR>
+nnoremap <silent> <F1> :set cursorline! cursorcolumn!<CR>
+" NERDTree settings
+nnoremap <silent> <F2> :NERDTreeToggle<CR>
+" go to previous/next buffer
+nnoremap <F3> :bprevious<CR>
+nnoremap <F4> :bnext<CR>
+" set hotkey to close buffer, standard hotkey for a lot of tools
+nnoremap <silent> <F10> :bd<CR>
 
 " enable folding
 set viewoptions=cursor,folds,slash,unix
@@ -87,3 +95,6 @@ nnoremap <S-Tab> <<_
 inoremap <S-Tab> <C-D>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
+
+" enable airline panel. Probably will disable it after
+let g:airline#extensions#tabline#enabled = 1
