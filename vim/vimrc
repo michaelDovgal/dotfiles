@@ -98,3 +98,7 @@ vnoremap <S-Tab> <gv
 
 " enable airline panel. Probably will disable it after
 let g:airline#extensions#tabline#enabled = 1
+
+" Ignore section
+" filter *.pyc files
+let NERDTreeIgnore = ['\.pyc$']
