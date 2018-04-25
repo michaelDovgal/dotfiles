@@ -53,6 +53,7 @@ Plugin 'https://github.com/vim-scripts/restore_view.vim'
 Plugin 'wombat256.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'supertab'
 call vundle#end()
 
 set cursorcolumn
@@ -72,7 +73,7 @@ set expandtab
 map <silent> <C-N> :set invnumber<CR>
 
 " set hotkey for toogle cursor highlight mode
-nnoremap <silent> <F1> :set cursorline! cursorcolumn!<CR>
+nnoremap <silent> <F5> :set cursorline! cursorcolumn!<CR>
 " NERDTree settings
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
 " go to previous/next buffer
