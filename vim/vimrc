@@ -48,12 +48,13 @@ Plugin 'VundleVim/Vundle.vim'
 " here will be list of plugins
 
 Plugin 'scrooloose/nerdtree'        " filetree
-Plugin 'grep.vim'
 Plugin 'https://github.com/vim-scripts/restore_view.vim'
 Plugin 'wombat256.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'supertab'
+Plugin 'herringtondarkholme/yats.vim'
+Plugin 'quramy/tsuquyomi'
 call vundle#end()
 
 set cursorcolumn
@@ -77,8 +78,8 @@ nnoremap <silent> <F5> :set cursorline! cursorcolumn!<CR>
 " NERDTree settings
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
 " go to previous/next buffer
-nnoremap <F3> :bprevious<CR>
-nnoremap <F4> :bnext<CR>
+nnoremap <silent> <F3> :bprevious<CR>
+nnoremap <silent> <F4> :bnext<CR>
 " set hotkey to close buffer, standard hotkey for a lot of tools
 nnoremap <silent> <F10> :bd<CR>
 
@@ -103,3 +104,24 @@ let g:airline#extensions#tabline#enabled = 1
 " Ignore section
 " filter *.pyc files
 let NERDTreeIgnore = ['\.pyc$']
+
+" special setting to enable typescript syntax highlighting
+autocmd BufNewFile,BufRead *.ts set syntax=typescript
+
+" create a new buffer for something
+function! ScratchBuffer()
+    rightbelow vnew
+    setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile
+    return bufnr('%')
+endfunction
+
+function! MyGrepSearch()
+    let bufnum = ScratchBuffer()
+    call inputsave()
+    let search_string = input('Input string: ')
+    let flags = input('Flags: ')
+    execute "r ! grep -r".flags ." ".search_string. " ."
+    call inputrestore()
+endfunction
+
+nnoremap <F6> :call MyGrepSearch()<CR>
