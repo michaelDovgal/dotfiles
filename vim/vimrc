@@ -115,7 +115,8 @@ function! ScratchBuffer()
     return bufnr('%')
 endfunction
 
-function! MyGrepSearch()
+" need to improve output of grep. add colors
+function! ManualGrepSearch()
     let bufnum = ScratchBuffer()
     call inputsave()
     let search_string = input('Input string: ')
@@ -124,4 +125,10 @@ function! MyGrepSearch()
     call inputrestore()
 endfunction
 
-nnoremap <F6> :call MyGrepSearch()<CR>
+function! AutoGrepSearch(search_string)
+    let bufnum = ScratchBuffer()
+    execute "r ! grep -rnI"." ".a:search_string. " ."
+endfunction
+
+nnoremap <F6> :call ManualGrepSearch()<CR>
+nnoremap <F7> :call AutoGrepSearch(expand('<cword>'))<CR>
