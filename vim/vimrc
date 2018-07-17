@@ -132,3 +132,6 @@ endfunction
 
 nnoremap <F6> :call ManualGrepSearch()<CR>
 nnoremap <F7> :call AutoGrepSearch(expand('<cword>'))<CR>
+
+" need to highlight search results
+set hls
