@@ -1,3 +1,4 @@
+set backspace=indent,eol,start
 set nocompatible
 
 " Automatic reloading of .vimrc on save
@@ -55,6 +56,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'supertab'
 Plugin 'herringtondarkholme/yats.vim'
 Plugin 'quramy/tsuquyomi'
+Plugin 'rust-lang/rust.vim'
 call vundle#end()
 
 set cursorcolumn
@@ -135,3 +137,6 @@ nnoremap <F7> :call AutoGrepSearch(expand('<cword>'))<CR>
 
 " need to highlight search results
 set hls
+
+filetype plugin indent on
+syntax on
